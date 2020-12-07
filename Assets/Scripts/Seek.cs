@@ -2,13 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Seek : MonoBehaviour, IDesiredVelocityProvider
+public class Seek : DesiredVelocityProvider
 {
     //[SerializeField]
-   // private Transform objectToFollow;
-    public Vector3 GetDesiredVelocity()
+    // private Transform objectToFollow;
+    public float radius = 10f;
+    public override Vector3 GetDesiredVelocity()
     {
-        //return (objectToFollow.position - transform.position).normalized * Wolf.VelocityLimit;
-        return (Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position).normalized * Wolf.VelocityLimit;
+        //return (objectToFollow.position - transform.position).normalized * Animal.VelocityLimit;
+        var velocity = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
+        if (velocity.magnitude < radius)
+        {
+            return velocity.normalized * Animal.VelocityLimit * (velocity.magnitude/radius);
+        }
+        return velocity.normalized * Animal.VelocityLimit;
     }
 }

@@ -1,11 +1,22 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class Wolf : MonoBehaviour
+using System.Linq;
+public class Animal : MonoBehaviour
 {
     private Vector3 velocity;
     private Vector3 acceleration;
+
+    public Vector3 Velocity { 
+        get
+        {
+            return velocity;
+        }
+        set
+        {
+            velocity = value;
+        }
+    }
 
     [SerializeField]
     private float mass = 1;
@@ -19,6 +30,14 @@ public class Wolf : MonoBehaviour
     private const float Epsilon = 0.01f;
     public static float VelocityLimit => velocityLimit;
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Bullet"))
+        {
+            Destroy(collision.gameObject);
+            Destroy(gameObject);
+        }
+    }
     public void ApplyForce(Vector3 force)
     {
         force /= mass;
@@ -40,14 +59,18 @@ public class Wolf : MonoBehaviour
 
         void ApplySteeringForce()
         {
-            var provider = GetComponent<IDesiredVelocityProvider>();
-            if(provider == null)
+            var providers = GetComponents<DesiredVelocityProvider>();
+            if(providers.Length == 0)
             {
-                Debug.LogError("Here");
+               // Debug.LogError("Here");
                 return;
             }
-
-            var desiredVelocity = provider.GetDesiredVelocity();
+            Vector3 desiredVelocity = Vector3.zero;
+            foreach(var provider in providers)
+            {
+                var velocity = provider.GetDesiredVelocity();
+                desiredVelocity += velocity.normalized * provider.Weight;
+            }
             var steeringForce = desiredVelocity - velocity;
 
             ApplyForce(steeringForce.normalized * steeringForceLimit);
@@ -67,7 +90,6 @@ public class Wolf : MonoBehaviour
 
             transform.position += velocity * Time.deltaTime;
             acceleration = Vector3.zero;
-            //transform.rotation = Quaternion.LookRotation(velocity);
         }
     }
 }
