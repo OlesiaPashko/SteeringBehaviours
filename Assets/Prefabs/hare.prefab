@@ -147,7 +147,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mass: 1
-  steeringForceLimit: 5
+  steeringForceLimit: 10.3
   radius: 10
 --- !u!114 &-3691090106113034218
 MonoBehaviour:
@@ -174,7 +174,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8438d466be524f747b70a1994d5a3584, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weight: 5
+  weight: 3
   radius: 10
   tagsToAvoid: []
 --- !u!114 &-5756603649128189723

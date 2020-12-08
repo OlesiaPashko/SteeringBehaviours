@@ -103,7 +103,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c4f709a283f082468b56a93d0357b73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weight: 8.08
+  weight: 10
 --- !u!61 &5283515033223258615
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -239,7 +239,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mass: 1
-  steeringForceLimit: 3
+  steeringForceLimit: 7.4
   radius: 10
 --- !u!114 &-770790379088325940
 MonoBehaviour:

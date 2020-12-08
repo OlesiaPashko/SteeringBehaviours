@@ -16,27 +16,27 @@ public class AvoidEdges : DesiredVelocityProvider
             return v;
         }
         Vector3 pos = Camera.main.WorldToViewportPoint(transform.position);
-
+        Vector3 desired = Vector3.zero;
         if (pos.x < edge) 
         { 
             //Debug.Log("I am left of the camera's view.");
-            return new Vector3(maxSpeed, 0, 0);
+            desired += new Vector3(maxSpeed, Animal.Velocity.y, 0);
         }
         if (1.0 - edge < pos.x)
         {
             //Debug.Log("I am right of the camera's view.");
-            return new Vector3(-maxSpeed, 0, 0);
+            desired += new Vector3(-maxSpeed, Animal.Velocity.y, 0);
         }
         if (pos.y < edge)
         {
             //Debug.Log("I am below the camera's view.");
-            return new Vector3(0, maxSpeed, 0);
+            desired += new Vector3(Animal.Velocity.x, maxSpeed, 0);
         }
         if (1.0 - edge < pos.y)
         {
             //Debug.Log("I am above the camera's view.");
-            return new Vector3(0, -maxSpeed, 0);
+            desired += new Vector3(Animal.Velocity.x, -maxSpeed, 0);
         }
-        return v;
+        return desired;
     }
 }
