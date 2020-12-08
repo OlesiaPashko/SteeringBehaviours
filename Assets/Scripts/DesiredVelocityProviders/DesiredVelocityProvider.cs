@@ -4,10 +4,10 @@ using UnityEngine;
 
 public abstract class DesiredVelocityProvider:MonoBehaviour
 {
-    [SerializeField, Range(0, 3)]
+    [SerializeField, Range(0, 10)]
     private float weight = 1;
 
-    public float Weight => weight;
+    public float Weight { get { return weight; } set { weight = value; } }
 
     protected Animal Animal;
 

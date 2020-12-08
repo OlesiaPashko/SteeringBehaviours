@@ -59,7 +59,7 @@ public class Animal : MonoBehaviour
 
         void ApplyFriction()
         {
-            var friction = -velocity.normalized * 0.5f;
+            var friction = -velocity.normalized * 0.1f;
             ApplyForce(friction);
         }
 
@@ -81,10 +81,6 @@ public class Animal : MonoBehaviour
 
             ApplyForce(steeringForce.normalized * steeringForceLimit);
         }
-    void Update()
-    {
-        ApplyForcesFromProviders();
-    }
 
         void ApplyForces()
         {

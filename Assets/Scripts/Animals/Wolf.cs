@@ -8,11 +8,11 @@ public class Wolf : Animal
     private float lifetime;
 
     [SerializeField, Range(1, 20)]
-    private float radius = 10f;
+    private float radius = 8f;
 
     private void Start()
     {
-        lifetime = 60f;
+        lifetime = 10f;
     }
 
     private void Update()
@@ -60,7 +60,7 @@ public class Wolf : Animal
         if (IsEatable(animal))
         {
             Destroy(animal);
-            lifetime += 60f;
+            lifetime += 10f;
         }
         OnCollision(collision);
     }

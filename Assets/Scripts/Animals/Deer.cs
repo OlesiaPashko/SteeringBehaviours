@@ -14,8 +14,11 @@ public class Deer : Animal
 
     private void Start()
     {
-        Avoidance av = GetComponent<Avoidance>();
-        av.tagsToAvoid = new string[] { "Player", "Wolf" };
+        Avoidance[] avs = GetComponents<Avoidance>();
+        avs[0].tagsToAvoid = new string[] { "Player", "Wolf" };
+        avs[0].Weight = 5f;
+        avs[1].tagsToAvoid = new string[] { "Deer" };
+        avs[0].Weight = 2f;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

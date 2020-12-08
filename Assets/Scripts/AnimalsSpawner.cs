@@ -30,7 +30,7 @@ public class AnimalsSpawner : MonoBehaviour
 
     private void Start()
     {
-        Bounds bounds = OrthographicBounds(Camera.main);
+        Bounds bounds = Camera.main.OrthographicBounds();
         SpawnDeers(bounds);
         SpawnHares(bounds);
         SpawnWolfs(bounds);
@@ -64,14 +64,5 @@ public class AnimalsSpawner : MonoBehaviour
             float randomY = Random.Range(bounds.min.y, bounds.max.y);
             Instantiate(deer, new Vector2(randomX, randomY), Quaternion.identity);
         }
-    }
-    private Bounds OrthographicBounds(Camera camera)
-    {
-        float screenAspect = (float)Screen.width / (float)Screen.height;
-        float cameraHeight = camera.orthographicSize * 2;
-        Bounds bounds = new Bounds(
-            camera.transform.position,
-            new Vector3(cameraHeight * screenAspect, cameraHeight, 0));
-        return bounds;
     }
 }

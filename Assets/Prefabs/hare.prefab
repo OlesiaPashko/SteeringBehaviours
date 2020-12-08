@@ -10,12 +10,12 @@ GameObject:
   m_Component:
   - component: {fileID: 4322927761491968641}
   - component: {fileID: 4322927761491968640}
-  - component: {fileID: 4322927761491968643}
   - component: {fileID: 4322927761491968642}
   - component: {fileID: 4322927761491968645}
   - component: {fileID: 2224322368195637253}
   - component: {fileID: -3691090106113034218}
   - component: {fileID: -7162149512962830243}
+  - component: {fileID: -5756603649128189723}
   m_Layer: 0
   m_Name: hare
   m_TagString: Hare
@@ -87,22 +87,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &4322927761491968643
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4322927761491968703}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57d2103069576f14e9dced5311108685, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  weight: 0
-  circleDistance: 1
-  circleRadius: 2
-  angleChangeStep: 15
 --- !u!50 &4322927761491968642
 Rigidbody2D:
   serializedVersion: 4
@@ -163,7 +147,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mass: 1
-  steeringForceLimit: 3
+  steeringForceLimit: 5
   radius: 10
 --- !u!114 &-3691090106113034218
 MonoBehaviour:
@@ -177,7 +161,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c4f709a283f082468b56a93d0357b73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weight: 1
+  weight: 10
 --- !u!114 &-7162149512962830243
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -190,6 +174,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8438d466be524f747b70a1994d5a3584, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weight: 3
+  weight: 5
   radius: 10
   tagsToAvoid: []
+--- !u!114 &-5756603649128189723
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4322927761491968703}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57d2103069576f14e9dced5311108685, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weight: 0.14
+  circleDistance: 1
+  circleRadius: 2
+  angleChangeStep: 15
