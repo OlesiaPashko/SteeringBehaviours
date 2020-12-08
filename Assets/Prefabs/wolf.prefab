@@ -120,7 +120,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c4f709a283f082468b56a93d0357b73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weight: 3
+  weight: 6.2
 --- !u!114 &291097489389485179
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -133,7 +133,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57d2103069576f14e9dced5311108685, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weight: 0.1
+  weight: 1.6
   circleDistance: 1
   circleRadius: 2
   angleChangeStep: 15
@@ -191,6 +191,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd83b249fe33a1a49b9f76d22eb766f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weight: 1
+  weight: 5.4
   objectToFollow: {fileID: 0}
   radius: 10
