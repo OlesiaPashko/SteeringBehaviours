@@ -10,13 +10,15 @@ GameObject:
   m_Component:
   - component: {fileID: 5283515033223258611}
   - component: {fileID: 5283515033223258608}
-  - component: {fileID: 5283515033223258610}
   - component: {fileID: 5283515033223258612}
   - component: {fileID: 5283515033223258615}
   - component: {fileID: 5283515033223258613}
   - component: {fileID: 5283515033223258601}
   - component: {fileID: 5283515033223258603}
   - component: {fileID: 5283515033223258600}
+  - component: {fileID: 1040694190870741908}
+  - component: {fileID: 4906309017239628413}
+  - component: {fileID: 3536282457184857781}
   m_Layer: 0
   m_Name: deer
   m_TagString: Deer
@@ -88,20 +90,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &5283515033223258610
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5283515033223258609}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 45e8df3828090774ea60e7bc1a9f1ad2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mass: 1
-  steeringForceLimit: 3
 --- !u!114 &5283515033223258612
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -199,3 +187,56 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weight: 1
   radius: 5
+  tagsToAvoid: []
+--- !u!50 &1040694190870741908
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5283515033223258609}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
+--- !u!114 &4906309017239628413
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5283515033223258609}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57d2103069576f14e9dced5311108685, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weight: 1
+  circleDistance: 1
+  circleRadius: 2
+  angleChangeStep: 15
+--- !u!114 &3536282457184857781
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5283515033223258609}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b75e78562faa3e240aee1621a74a9e9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mass: 1
+  steeringForceLimit: 3
+  radius: 10

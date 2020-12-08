@@ -4,8 +4,8 @@ using UnityEngine;
 using System.Linq;
 public class Animal : MonoBehaviour
 {
-    private Vector3 velocity;
-    private Vector3 acceleration;
+    protected Vector3 velocity;
+    protected Vector3 acceleration;
 
     public Vector3 Velocity { 
         get
@@ -28,22 +28,28 @@ public class Animal : MonoBehaviour
     private float steeringForceLimit = 3;
 
     private const float Epsilon = 0.01f;
-    public static float VelocityLimit => velocityLimit;
+    public float VelocityLimit => velocityLimit;
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    public void ApplyForce(Vector3 force)
+    {
+        force /= mass;
+        acceleration += force;
+    }
+
+    protected void OnCollision(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Bullet"))
         {
             Destroy(collision.gameObject);
             Destroy(gameObject);
         }
+        else if (collision.gameObject.CompareTag("Border"))
+        {
+            Destroy(gameObject);
+        }
     }
-    public void ApplyForce(Vector3 force)
-    {
-        force /= mass;
-        acceleration += force;
-    }
-    void Update()
+
+    protected void ApplyForcesFromProviders()
     {
         ApplyFriction();
 
@@ -60,13 +66,13 @@ public class Animal : MonoBehaviour
         void ApplySteeringForce()
         {
             var providers = GetComponents<DesiredVelocityProvider>();
-            if(providers.Length == 0)
+            if (providers.Length == 0)
             {
-               // Debug.LogError("Here");
+                // Debug.LogError("Here");
                 return;
             }
             Vector3 desiredVelocity = Vector3.zero;
-            foreach(var provider in providers)
+            foreach (var provider in providers)
             {
                 var velocity = provider.GetDesiredVelocity();
                 desiredVelocity += velocity.normalized * provider.Weight;
@@ -75,6 +81,10 @@ public class Animal : MonoBehaviour
 
             ApplyForce(steeringForce.normalized * steeringForceLimit);
         }
+    void Update()
+    {
+        ApplyForcesFromProviders();
+    }
 
         void ApplyForces()
         {

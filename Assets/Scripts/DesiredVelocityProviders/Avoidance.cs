@@ -1,11 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using System.Linq;
 public class Avoidance : DesiredVelocityProvider
 {
     [SerializeField, Range(1, 20)]
     private float radius = 10f;
+
+    public string[] tagsToAvoid;
     public override Vector3 GetDesiredVelocity()
     {
         Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, radius);
@@ -14,7 +16,7 @@ public class Avoidance : DesiredVelocityProvider
         foreach(var collider in colliders)
         {
             GameObject otherAnimal = collider.gameObject;
-            if (otherAnimal.CompareTag("Deer"))
+            if (tagsToAvoid.Any(x=>otherAnimal.CompareTag(x)))
             {
                 Vector2 desiredVelocity = transform.position - otherAnimal.transform.position;
                 float distance = (desiredVelocity).magnitude;

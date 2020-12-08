@@ -10,14 +10,15 @@ GameObject:
   m_Component:
   - component: {fileID: 291097489389485183}
   - component: {fileID: 291097489389485182}
-  - component: {fileID: 291097489389485180}
   - component: {fileID: 291097489389485181}
   - component: {fileID: 291097489389485178}
   - component: {fileID: 291097489389485179}
   - component: {fileID: 291097489389485176}
+  - component: {fileID: 4974703771576462154}
+  - component: {fileID: 6774476229089505391}
   m_Layer: 0
   m_Name: wolf
-  m_TagString: Untagged
+  m_TagString: Wolf
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -31,7 +32,7 @@ Transform:
   m_GameObject: {fileID: 291097489389485169}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -10.6, y: 1.5, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -86,20 +87,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &291097489389485180
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 291097489389485169}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 45e8df3828090774ea60e7bc1a9f1ad2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mass: 1
-  steeringForceLimit: 3
 --- !u!50 &291097489389485181
 Rigidbody2D:
   serializedVersion: 4
@@ -120,7 +107,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 7
 --- !u!114 &291097489389485178
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -133,7 +120,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c4f709a283f082468b56a93d0357b73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weight: 2
+  weight: 3
 --- !u!114 &291097489389485179
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -146,7 +133,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57d2103069576f14e9dced5311108685, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weight: 1
+  weight: 0.1
   circleDistance: 1
   circleRadius: 2
   angleChangeStep: 15
@@ -176,3 +163,34 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.5410681, y: 1.4430332}
   m_EdgeRadius: 0
+--- !u!114 &4974703771576462154
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 291097489389485169}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90fd2c8c3fab74b4983167971517bd9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mass: 1
+  steeringForceLimit: 4.1
+  lifetime: 0
+  radius: 10
+--- !u!114 &6774476229089505391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 291097489389485169}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd83b249fe33a1a49b9f76d22eb766f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weight: 1
+  objectToFollow: {fileID: 0}
+  radius: 10

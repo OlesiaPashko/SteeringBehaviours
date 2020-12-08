@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AvoidEdges : DesiredVelocityProvider
 {
-    private float edge = 0.05f;
+    private float edge = 0.2f;
     public override Vector3 GetDesiredVelocity()
     {
         var cam = Camera.main;

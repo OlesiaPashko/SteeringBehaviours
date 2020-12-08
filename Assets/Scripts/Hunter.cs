@@ -33,7 +33,7 @@ public class Hunter : MonoBehaviour
         Vector2 direction = (mousePosition - transform.position).normalized;
         GameObject instantiatedBullet = Instantiate(bullet, transform.position, Quaternion.identity);
         instantiatedBullet.GetComponent<Rigidbody2D>().velocity = direction * bulletSpeed;
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1.5f);
         Destroy(instantiatedBullet);
         yield return new WaitForEndOfFrame();
     }
