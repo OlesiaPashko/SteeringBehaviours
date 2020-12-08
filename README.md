@@ -11,4 +11,6 @@ After a few seconds of simulation </br>
 
 ## Simulation middle </br>
 ![Simulation middle](https://github.com/OlesiaPashko/SteeringBehaviours/blob/main/Screenshots/AnotherSimulation.png)
+
+## Another simulation</br>
 ![Simulation middle](https://github.com/OlesiaPashko/SteeringBehaviours/blob/main/Screenshots/MiddleOfSimulation.png)
