@@ -15,9 +15,11 @@ public class InitialSceneManager : MonoBehaviour
         int deerGroups = int.Parse(deerGroupsCount.text);
         int wolfs = int.Parse(wolfsCount.text);
         int hares = int.Parse(haresCount.text);
+        AnimalsSpawner.deerGroupsCount = deerGroups;
+        AnimalsSpawner.haresCount = hares;
+        AnimalsSpawner.wolfsCount = wolfs;
+
 
         SceneManager.LoadScene("Main");
-        AnimalsSpawner.Instance.SetAnimalCounts(deerGroups, wolfs, hares);
-        AnimalsSpawner.Instance.StartSimulation();
     }
 }

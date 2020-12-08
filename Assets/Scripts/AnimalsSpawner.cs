@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class AnimalsSpawner : MonoBehaviour
 {
-    public int deerGroupsCount;
-    public int wolfsCount;
-    public int haresCount;
+    public static int deerGroupsCount;
+    public static int wolfsCount;
+    public static int haresCount;
     public GameObject wolf;
     public GameObject deer;
     public GameObject hare;
@@ -26,17 +26,9 @@ public class AnimalsSpawner : MonoBehaviour
         {
             _instance = this;
         }
-        DontDestroyOnLoad(this.gameObject);
     }
 
-    public void SetAnimalCounts(int deerGroupsCount, int wolfsCount, int haresCount)
-    {
-        this.deerGroupsCount = deerGroupsCount;
-        this.wolfsCount = wolfsCount;
-        this.haresCount = haresCount;
-    }
-
-    public void StartSimulation()
+    private void Start()
     {
         Bounds bounds = OrthographicBounds(Camera.main);
         SpawnDeers(bounds);

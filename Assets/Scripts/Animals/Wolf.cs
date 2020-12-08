@@ -15,11 +15,6 @@ public class Wolf : Animal
         lifetime = 60f;
     }
 
-    private void Awake()
-    {
-        DontDestroyOnLoad(this.gameObject);
-    }
-
     private void Update()
     {
         ApplyForcesFromProviders();

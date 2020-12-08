@@ -7,10 +7,6 @@ public class Hare : Animal
     [SerializeField, Range(1, 20)]
     private float radius = 10f;
 
-    private void Awake()
-    {
-        DontDestroyOnLoad(this.gameObject);
-    }
 
     void Update()
     {
